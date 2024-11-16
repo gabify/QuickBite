@@ -1,12 +1,18 @@
 require('dotenv').config()
 
 const express = require('express')
+const cors = require('cors')
 const { default: mongoose } = require('mongoose')
 
 const productRoutes = require('./routes/productRoutes')
 const app = express()
 
 //middleware
+let corsOptions = {
+    origin : ['http://127.0.0.1:5500']
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use((request, response, next) =>{
     console.log(request.path, request.method)

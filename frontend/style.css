@@ -1,0 +1,28 @@
+:root{
+    --primary-color: #fc5c65;
+    --secondary-color: #b33939;
+    --highlight-color: #f9ca24;
+    --light-color:#f5f6fa;
+    --dark-color:#1e272e;
+}
+
+body{
+    background-color: var(--light-color);
+}
+
+.menu-item{
+    background-color: var(--light-color);
+    border-color: var(--secondary-color);
+}
+
+.navbar{
+    background-color: var(--primary-color);
+}
+
+.navbar-brand{
+    color: var(--light-color)
+}
+
+.card-title{
+    color: var(--primary-color);
+}

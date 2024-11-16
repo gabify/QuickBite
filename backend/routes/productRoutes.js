@@ -13,4 +13,6 @@ router.post('/new', createProduct)
 //GET REQUEST
 router.get('/', getProducts)
 
+
+
 module.exports = router
