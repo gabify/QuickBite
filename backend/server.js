@@ -2,11 +2,18 @@ require('dotenv').config()
 
 const express = require('express')
 const { default: mongoose } = require('mongoose')
+const cors = require('cors')
 
 const productRoutes = require('./routes/productRoutes')
+const userRoutes = require('./routes/userRoutes')
 const app = express()
 
 //middleware
+let corsOptions = {
+    origin: ['http://127.0.0.1:5500']
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use((request, response, next) =>{
     console.log(request.path, request.method)
@@ -26,7 +33,11 @@ mongoose.connect(process.env.DB_URI)
 
 const requestMapper = '/api/v1';
 
+//product routes
 app.use(requestMapper+ '/product', productRoutes)
+
+//user routes
+app.use(requestMapper + '/user', userRoutes)
 
 
 //If no request match 
